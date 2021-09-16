@@ -1,0 +1,14 @@
+C:\Users\dholmes\source\repos\LeapActivityTracker\LeapActivityTracker.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\dholmes\source\repos\LeapActivityTracker\LeapActivityTracker.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\dholmes\source\repos\LeapActivityTracker\LeapActivityTracker.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\dholmes\source\repos\LeapActivityTracker\LeapActivityTracker.UnitTests\bin\Debug\LeapActivityTracker.UnitTests.dll
+C:\Users\dholmes\source\repos\LeapActivityTracker\LeapActivityTracker.UnitTests\bin\Debug\LeapActivityTracker.UnitTests.pdb
+C:\Users\dholmes\source\repos\LeapActivityTracker\LeapActivityTracker.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\dholmes\source\repos\LeapActivityTracker\LeapActivityTracker.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\dholmes\source\repos\LeapActivityTracker\LeapActivityTracker.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\dholmes\source\repos\LeapActivityTracker\LeapActivityTracker.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\dholmes\source\repos\LeapActivityTracker\LeapActivityTracker.UnitTests\obj\Debug\LeapActivityTracker.UnitTests.csproj.AssemblyReference.cache
+C:\Users\dholmes\source\repos\LeapActivityTracker\LeapActivityTracker.UnitTests\obj\Debug\LeapActivityTracker.UnitTests.csproj.CoreCompileInputs.cache
+C:\Users\dholmes\source\repos\LeapActivityTracker\LeapActivityTracker.UnitTests\obj\Debug\LeapActivityTracker.UnitTests.csproj.CopyComplete
+C:\Users\dholmes\source\repos\LeapActivityTracker\LeapActivityTracker.UnitTests\obj\Debug\LeapActivityTracker.UnitTests.dll
+C:\Users\dholmes\source\repos\LeapActivityTracker\LeapActivityTracker.UnitTests\obj\Debug\LeapActivityTracker.UnitTests.pdb

@@ -1,0 +1,9 @@
+C:\Users\dholmes\source\repos\LeapActivityTracker\LeapActivityTracker.Infrastructure\bin\Debug\netcoreapp3.1\LeapActivityTracker.Infrastructure.deps.json
+C:\Users\dholmes\source\repos\LeapActivityTracker\LeapActivityTracker.Infrastructure\bin\Debug\netcoreapp3.1\LeapActivityTracker.Infrastructure.dll
+C:\Users\dholmes\source\repos\LeapActivityTracker\LeapActivityTracker.Infrastructure\bin\Debug\netcoreapp3.1\LeapActivityTracker.Infrastructure.pdb
+C:\Users\dholmes\source\repos\LeapActivityTracker\LeapActivityTracker.Infrastructure\obj\Debug\netcoreapp3.1\LeapActivityTracker.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\dholmes\source\repos\LeapActivityTracker\LeapActivityTracker.Infrastructure\obj\Debug\netcoreapp3.1\LeapActivityTracker.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\dholmes\source\repos\LeapActivityTracker\LeapActivityTracker.Infrastructure\obj\Debug\netcoreapp3.1\LeapActivityTracker.Infrastructure.AssemblyInfo.cs
+C:\Users\dholmes\source\repos\LeapActivityTracker\LeapActivityTracker.Infrastructure\obj\Debug\netcoreapp3.1\LeapActivityTracker.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\dholmes\source\repos\LeapActivityTracker\LeapActivityTracker.Infrastructure\obj\Debug\netcoreapp3.1\LeapActivityTracker.Infrastructure.dll
+C:\Users\dholmes\source\repos\LeapActivityTracker\LeapActivityTracker.Infrastructure\obj\Debug\netcoreapp3.1\LeapActivityTracker.Infrastructure.pdb
