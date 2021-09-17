@@ -1,11 +1,15 @@
-﻿using System;
+﻿using AutoMapper;
+using LeapActivityTracker.Core.Activity.Queries;
+using LeapActivityTracker.Infrastructure.Entities;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace LeapActivityTracker.Profiles
+namespace LeapActivityTracker.Core
 {
-    public class ActivityProfile
+    public class ActivityProfile : Profile
     {
+        public ActivityProfile()
+        {
+            CreateMap<ActivityEntity, ActivityDto>();
+        }
     }
 }

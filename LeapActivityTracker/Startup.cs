@@ -29,12 +29,12 @@ namespace LeapActivityTracker
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAutoMapper(typeof(Startup));
+            services.AddAutoMapper(typeof(Startup), typeof(GetActivitySummaryQueryHandler));
             services.AddMediatR(typeof(Startup), typeof(GetActivitySummaryQueryHandler));
             services.AddControllers();
 
             services.AddSwaggerGen();
-            services.AddTransient<DbContext, InMemoryContext>();
+            services.AddDbContext<ActivitiesDbContext>(options => options.UseInMemoryDatabase(databaseName: "Activities"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

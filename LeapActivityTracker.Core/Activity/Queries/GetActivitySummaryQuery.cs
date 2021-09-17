@@ -4,7 +4,7 @@ using System;
 
 namespace LeapActivityTracker.Core
 {
-    public class GetActivitySummaryQuery : IRequest<GetActivitySummaryViewModel>
+    public class GetActivitySummaryQuery : IRequest<GetAllActivitySummaryViewModel>
     {
         public DateTime? TimeFrom { get; set; }
         public DateTime? TimeTo { get; set; }

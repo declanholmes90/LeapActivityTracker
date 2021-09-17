@@ -4,10 +4,7 @@ using LeapActivityTracker.Core.Activity.Queries;
 using LeapActivityTracker.Requests;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -26,7 +23,7 @@ namespace LeapActivityTracker.Controllers
         }
 
         [HttpPost(nameof(GetSummaryOfActivities))]
-        public async Task<GetActivitySummaryViewModel> GetSummaryOfActivities(GetActivitySummaryRequest request, CancellationToken cancellationToken)
+        public async Task<GetAllActivitySummaryViewModel> GetSummaryOfActivities(GetActivitySummaryRequest request, CancellationToken cancellationToken)
         {
             var query = _mapper.Map<GetActivitySummaryQuery>(request);
             var result = await _mediator.Send(query, cancellationToken);

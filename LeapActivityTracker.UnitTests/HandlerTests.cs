@@ -1,12 +1,17 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using AutoFixture;
+using AutoMapper;
+using Moq;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using Xunit;
 
 namespace LeapActivityTracker.UnitTests
 {
-    [TestClass]
+
     public class HandlerTests
     {
-        [TestMethod]
+        private GetActivitySummaryQueryHandler _sut;
+        [Fact]
         public void TestMethod1()
         {
         }
