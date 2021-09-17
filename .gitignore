@@ -1,2 +1,6 @@
 */obj/*
 */bin/*
+/.vs/LeapActivityTracker/DesignTimeBuild/.dtbcache.v2
+/.vs/LeapActivityTracker/v16/.suo
+/.vs/LeapActivityTracker/v16/TestStore/0/000.testlog
+*.pdb
