@@ -4,3 +4,4 @@
 /.vs/LeapActivityTracker/v16/.suo
 /.vs/LeapActivityTracker/v16/TestStore/0/000.testlog
 *.pdb
+*.vs*

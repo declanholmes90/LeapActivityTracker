@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LeapActivityTracker.Core.Activity.Common;
+using System;
 using System.Collections.Generic;
 
 namespace LeapActivityTracker.Core.Activity.Queries

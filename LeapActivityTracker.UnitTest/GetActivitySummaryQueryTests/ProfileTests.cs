@@ -1,27 +1,27 @@
 ﻿using AutoFixture;
 using AutoMapper;
-using LeapActivityTracker.Core;
 using LeapActivityTracker.Core.Activity.Queries;
-using LeapActivityTracker.Infrastructure;
-using Microsoft.EntityFrameworkCore;
-using Moq;
-using System;
-using Shouldly;
-using System.Threading.Tasks;
-using Xunit;
 using LeapActivityTracker.Requests;
+using Shouldly;
+using Xunit;
 
 namespace LeapActivityTracker.UnitTests.GetActivitySummaryQueryTests
 {
     public class ProfileTests : TestBase
     {
+        private readonly IMapper _mapper;
+        public ProfileTests()
+        {
+            var config = new MapperConfiguration(configure => configure.AddMaps(typeof(GetActivitySummaryQuery), typeof(GetActivitySummaryRequest)));
+            _mapper = config.CreateMapper();
+        }
 
         [Fact]
-        public async Task Profile_RequestMapsCorrectlyToQuery()
+        public void Profile_RequestMapsCorrectlyToQuery()
         {
             var request = Fixture.Create<GetActivitySummaryRequest>();
 
-            var query = Mapper.Map<GetActivitySummaryQuery>(request);
+            var query = _mapper.Map<GetActivitySummaryQuery>(request);
 
             query.TimeFrom.ShouldBe(request.TimeFrom);
             query.TimeTo.ShouldBe(request.TimeTo);

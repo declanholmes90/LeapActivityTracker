@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using LeapActivityTracker.Core;
+using LeapActivityTracker.Core.Activity.Queries;
 using LeapActivityTracker.Requests;
 
 namespace LeapActivityTracker.Profiles

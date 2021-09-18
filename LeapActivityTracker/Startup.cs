@@ -1,19 +1,14 @@
+using FluentValidation;
 using LeapActivityTracker.Core.Activity.Queries;
+using LeapActivityTracker.Core.Common.Behaviours;
 using LeapActivityTracker.Infrastructure;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace LeapActivityTracker
 {
@@ -34,7 +29,11 @@ namespace LeapActivityTracker
             services.AddControllers();
 
             services.AddSwaggerGen();
-            services.AddDbContext<ActivitiesDbContext>(options => options.UseInMemoryDatabase(databaseName: "Activities"));
+
+            services.AddValidatorsFromAssembly(typeof(GetActivitySummaryQueryHandler).Assembly);
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehaviour<,>));
+
+            services.AddDbContext<ActivitiesDbContext>(options => options.UseInMemoryDatabase(databaseName: "Activities"), ServiceLifetime.Transient);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

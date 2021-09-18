@@ -1,5 +1,8 @@
 ﻿using AutoMapper;
 using LeapActivityTracker.Core;
+using LeapActivityTracker.Core.Activity.Commands;
+using LeapActivityTracker.Core.Activity.Commands.CreateActivity;
+using LeapActivityTracker.Core.Activity.Commands.UpdateActivity;
 using LeapActivityTracker.Core.Activity.Queries;
 using LeapActivityTracker.Requests;
 using MediatR;
@@ -27,12 +30,25 @@ namespace LeapActivityTracker.Controllers
         {
             var query = _mapper.Map<GetActivitySummaryQuery>(request);
             var result = await _mediator.Send(query, cancellationToken);
+
             return result;
         }
 
         [HttpPost(nameof(CreateActivity))]
-        public async Task<Unit> CreateActivity(GetActivitySummaryRequest request, CancellationToken cancellationToken)
+        public async Task<Unit> CreateActivity(CreateActivityRequest request, CancellationToken cancellationToken)
         {
+            var cmd = _mapper.Map<CreateActivityCommand>(request);
+            await _mediator.Send(cmd, cancellationToken);
+
+            return Unit.Value;
+        }
+
+        [HttpPost(nameof(UpdateActivity))]
+        public async Task<Unit> UpdateActivity(UpdateActivityRequest request, CancellationToken cancellationToken)
+        {
+            var cmd = _mapper.Map<UpdateActivityCommand>(request);
+            await _mediator.Send(cmd, cancellationToken);
+
             return Unit.Value;
         }
     }

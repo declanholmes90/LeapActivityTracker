@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace LeapActivityTracker.Core.Activity.Queries
+namespace LeapActivityTracker.Core.Activity.Common
 {
     public static class ActivityTypes
     {

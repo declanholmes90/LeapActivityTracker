@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
+using FluentValidation;
+using LeapActivityTracker.Core.Activity.Common;
 using LeapActivityTracker.Infrastructure;
-using LeapActivityTracker.Infrastructure.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -20,49 +22,35 @@ namespace LeapActivityTracker.Core.Activity.Queries
             _mapper = mapper;
             _dbContext = dbContext;
         }
+
         public async Task<GetAllActivitySummaryViewModel> Handle(GetActivitySummaryQuery request, CancellationToken cancellationToken)
         {
             GetAllActivitySummaryViewModel returnViewModel = new GetAllActivitySummaryViewModel();
 
-            GetActivitySummaryViewModel phoneSummaryViewModel = new GetActivitySummaryViewModel()
-            {
-                ActivityType = ActivityTypes.PhoneCall,
-                ActivitiesCollection = _mapper.Map<IList<ActivityDto>>(await _dbContext.Activities.Where(a => a.Type == ActivityTypes.PhoneCall.Id
-                    && a.TimeFrom >= request.TimeFrom
-                    && a.TimeTo <= request.TimeTo
-                ).ToListAsync(cancellationToken))
-            };
+            GetActivitySummaryViewModel phoneSummaryViewModel = await GetActivityByTypeAndTime(ActivityTypes.PhoneCall, request.TimeFrom, request.TimeTo, cancellationToken);
+            GetActivitySummaryViewModel EmailSummaryViewModel = await GetActivityByTypeAndTime(ActivityTypes.Email, request.TimeFrom, request.TimeTo, cancellationToken);
+            GetActivitySummaryViewModel documentSummaryViewModel = await GetActivityByTypeAndTime(ActivityTypes.Document, request.TimeFrom, request.TimeTo, cancellationToken);
+            GetActivitySummaryViewModel appointmentSummaryViewModel = await GetActivityByTypeAndTime(ActivityTypes.Appointment, request.TimeFrom, request.TimeTo, cancellationToken);
 
-            GetActivitySummaryViewModel EmailSummaryViewModel = new GetActivitySummaryViewModel()
-            {
-                ActivityType = ActivityTypes.Email,
-                ActivitiesCollection = _mapper.Map<IList<ActivityDto>>(await _dbContext.Activities.Where(a => a.Type == ActivityTypes.Email.Id
-                    && a.TimeFrom >= request.TimeFrom
-                    && a.TimeTo <= request.TimeTo
-                ).ToListAsync(cancellationToken))
-            };
-
-            GetActivitySummaryViewModel DocumentSummaryViewModel = new GetActivitySummaryViewModel()
-            {
-                ActivityType = ActivityTypes.Document,
-                ActivitiesCollection = _mapper.Map<IList<ActivityDto>>(await _dbContext.Activities.Where(a => a.Type == ActivityTypes.Document.Id
-                    && a.TimeFrom >= request.TimeFrom
-                    && a.TimeTo <= request.TimeTo
-                ).ToListAsync(cancellationToken))
-            };
-
-            GetActivitySummaryViewModel AppointmentSummaryViewModel = new GetActivitySummaryViewModel()
-            {
-                ActivityType = ActivityTypes.Appointment,
-                ActivitiesCollection = _mapper.Map<IList<ActivityDto>>(await _dbContext.Activities.Where(a => a.Type == ActivityTypes.Appointment.Id
-                    && a.TimeFrom >= request.TimeFrom
-                    && a.TimeTo <= request.TimeTo
-                ).ToListAsync(cancellationToken))
-            };
-
-            returnViewModel.ActivityByTypeCollection = new List<GetActivitySummaryViewModel> { phoneSummaryViewModel, EmailSummaryViewModel, DocumentSummaryViewModel, AppointmentSummaryViewModel };
+            returnViewModel.ActivityByTypeCollection = new List<GetActivitySummaryViewModel> { phoneSummaryViewModel, EmailSummaryViewModel, documentSummaryViewModel, appointmentSummaryViewModel };
 
             return returnViewModel;
+        }
+
+        private async Task<GetActivitySummaryViewModel> GetActivityByTypeAndTime(ActivityType activityType, DateTime? timeFrom, DateTime? timeTo, CancellationToken cancellationToken)
+        {
+            var viewModel = new GetActivitySummaryViewModel()
+            {
+                ActivityType = activityType,
+                ActivitiesCollection = _mapper.Map<IList<ActivityDto>>(await _dbContext.Activities.Where(a => a.TypeId == activityType.Id
+                    && a.TimeFrom >= timeFrom
+                    && a.TimeTo <= timeTo
+                ).ToListAsync(cancellationToken)),
+            };
+
+            viewModel.TimeTotalElapsed = new TimeSpan(viewModel.ActivitiesCollection.Sum(a => a.TimeElapsed.Ticks));
+
+            return viewModel;
         }
     }
 }

@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
-using LeapActivityTracker.Core.Activity.Queries;
 using LeapActivityTracker.Infrastructure.Entities;
-using System.Collections.Generic;
 
-namespace LeapActivityTracker.Core
+namespace LeapActivityTracker.Core.Activity.Queries
 {
     public class ActivityProfile : Profile
     {

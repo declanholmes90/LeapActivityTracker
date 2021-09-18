@@ -13,9 +13,6 @@ namespace LeapActivityTracker.UnitTests
         {
             Fixture = new Fixture()
                 .Customize(new AutoMoqCustomization());
-
-            Mapper = Fixture.Create<IMapper>();
-            Fixture.Inject(Mapper);
         }
     }
 }

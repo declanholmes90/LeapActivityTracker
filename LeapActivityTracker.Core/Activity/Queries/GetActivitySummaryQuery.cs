@@ -1,8 +1,7 @@
-﻿using LeapActivityTracker.Core.Activity.Queries;
-using MediatR;
+﻿using MediatR;
 using System;
 
-namespace LeapActivityTracker.Core
+namespace LeapActivityTracker.Core.Activity.Queries
 {
     public class GetActivitySummaryQuery : IRequest<GetAllActivitySummaryViewModel>
     {
